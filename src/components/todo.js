@@ -16,6 +16,14 @@ export default class Todo extends Component {
     })
   }
 
+  addToList (input) {
+    const listArray = this.state.list
+    listArray.push(input)
+    this.setState({
+      list: listArray
+    })
+  }
+
   render () {
     return (
       <div className='todo-main'>
@@ -24,7 +32,11 @@ export default class Todo extends Component {
           value={this.state.userInput}
           type='text'
         />
-        <button>Add to list</button>
+        <button onClick={() => this.addToList(this.state.userInput)}>Add to list</button>
+
+        <ul>
+          {this.state.list.map((val, i) => <li key={i}>{val}</li>)}
+        </ul>
       </div>
     )
   }
