@@ -10,10 +10,21 @@ export default class Todo extends Component {
     }
   }
 
+  changeUserInput (input) {
+    this.setState({
+      userInput: input
+    })
+  }
+
   render () {
     return (
-      <div>
-          The List goes here
+      <div className='todo-main'>
+        <input
+          onChange={e => this.changeUserInput(e.target.value)}
+          value={this.state.userInput}
+          type='text'
+        />
+        <button>Add to list</button>
       </div>
     )
   }
