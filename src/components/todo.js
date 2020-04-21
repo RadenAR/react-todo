@@ -20,7 +20,8 @@ export default class Todo extends Component {
     const listArray = this.state.list
     listArray.push(input)
     this.setState({
-      list: listArray
+      list: listArray,
+      userInput: ''
     })
   }
 
